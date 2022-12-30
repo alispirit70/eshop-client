@@ -1,0 +1,24 @@
+.productTitle{
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 2.12;
+    margin: 0;
+}
+.productSub{
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 2.17;
+}
+.productPrice{
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 2.12;
+    color: #00bf6f;
+}
+.productOff{
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #8c8c8c;
+    text-decoration: line-through;
+    padding-right: 10px;
+}

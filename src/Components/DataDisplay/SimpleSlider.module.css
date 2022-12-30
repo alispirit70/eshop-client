@@ -1,0 +1,8 @@
+[dir='rtl'] .simpleSld .slick-prev {
+    /*right: 25px;*/
+    /*left: auto;*/
+}
+.simpleSld .slick-prev {
+    /*left: 25px;*/
+    background-color: #ff3344;
+}

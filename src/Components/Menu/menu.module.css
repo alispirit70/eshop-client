@@ -1,0 +1,155 @@
+.mainMenu {
+    transition: all 0.5s ease;
+}
+
+.mainMenu > nav {
+    position: relative;
+    background-color: #FFFFFF;
+    z-index: 7;
+    display: flex;
+    padding: 0 20px;
+}
+
+.menu, .submenu {
+    list-style-type: none;
+}
+
+/* Mobile menu */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content: space-between;*/
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    display: block;
+    padding: 15px 5px;
+}
+
+.menu .menuItem {
+    position: relative;
+    cursor: pointer;
+    border: none;
+    background-color: #FFFFFF;
+}
+
+.menu .menuItem {
+    padding: 0.5rem 1rem;
+}
+
+.menu .menuItem:before {
+    content: "|";
+    color: #a5a5a5;
+    position: absolute;
+    right: 0;
+}
+
+.menu li.active {
+    border-bottom: 2px solid #0582c6;
+}
+
+.menu li:first-child .menuItem:before {
+    display: none;
+}
+
+.menu .submenu a {
+    padding: 0.25rem 0.5rem;
+    text-decoration: none;
+}
+
+.menu .submenuSec {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    top: 100%;
+    right: 0;
+    /*display: none;*/
+    height: 0px;
+    transition: opacity  0.25s ease;
+    opacity: 0;
+    background-color: #FAFAFA;
+    overflow: hidden;
+}
+
+.menu .active .submenuSec {
+    /*display: block;*/
+    height: auto;
+    opacity: 1;
+}
+
+.submenuList {
+    display: flex;
+    padding: 1rem 1rem 2rem;
+}
+
+.menuBackdrop {
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: #282c3422;
+    display: none;
+}
+
+.menuBackdrop.backdropActive {
+    display: block;
+}
+
+.active .item {
+    display: block;
+}
+
+.menuBurger {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .menuBurger {
+        display: block;
+    }
+
+    .mainMenu > nav {
+        padding: 0;
+    }
+    .mainMenu .menu{
+        /*display: none;*/
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        align-content: stretch;
+        justify-content: initial;
+        flex-wrap: initial;
+        height: 0;
+        transition: all 0.3s ease-in;
+        opacity: 0;
+        overflow: hidden;
+    }
+    .mainMenu .menu.shownMenu{
+        /*display: block;*/
+        height: auto;
+        opacity: 1;
+    }
+    .mainMenu nav, .menu {
+        flex-direction: column;
+    }
+
+    .menu .menuItem:before {
+        display: none;
+    }
+
+    li.active {
+        width: 100%;
+    }
+
+    .menu li.active .submenuSec {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+}
+

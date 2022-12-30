@@ -1,0 +1,19 @@
+.headerDark{
+    background-color: #332d2d;
+    color: #fff;
+}
+.headerLight{
+    background-color: #fbfbfb;
+}
+.headerSecondary{
+    background-color: #ecedf0 ;
+}
+.headerDefault{
+    background-color: #FFF ;
+}
+.TableStriped tr:nth-child(even){
+    background-color: #FFF;
+}
+.TableStriped tr:nth-child(odd){
+    background-color: rgba(0, 0, 0, 0.04);
+}
