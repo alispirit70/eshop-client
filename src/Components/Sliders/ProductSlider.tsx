@@ -89,7 +89,7 @@ const ProductSlider: React.FC<propsType> = () => {
                     items={items}
                     slidesToShow={3}
                     autoplay={false}
-                    arrows={true}
+                    arrows={false}
                     infinite={true}
                 />
             </Col>

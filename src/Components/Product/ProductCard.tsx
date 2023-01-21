@@ -2,6 +2,7 @@ import React, {ReactNode, useState} from 'react';
 import Row from "Components/Layouts/Row";
 import Col from "Components/Layouts/Col";
 import styles from './ProductCard.module.css';
+import {Box} from "@mui/material";
 
 type propsType = {
     image?: string,
@@ -38,7 +39,7 @@ const ProductCard: React.FC<propsType> = ({
     const product = (
         <div className={styles.productCard} style={{maxWidth: width}}>
             <img className={styles.productImg} src={image} alt={alt}/>
-            {showPercent && <div className={styles.discunt}>{Math.floor((priceBeforeOff - price)*100 / price)}%</div>}
+            {showPercent && <div className={styles.discount}>{Math.floor((priceBeforeOff - price)*100 / price)}%</div>}
             <div className={styles.productDetail}>
                 <div>
                     <div className={styles.titleSec}>
@@ -60,11 +61,12 @@ const ProductCard: React.FC<propsType> = ({
     return (
         <Row>
             <Col col={{xs: 12}}>
-                <>
+                <Box sx={{ display: 'flex' , justifyContent: 'center' }}>
+
                     {product}
                     {/*{!!link && <a href="">{product}</a>}*/}
                     {/*{!link && {product}}*/}
-                </>
+                </Box>
             </Col>
         </Row>
     );

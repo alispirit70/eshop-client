@@ -14,18 +14,18 @@ const MainSlides: React.FC<propsType> = () => {
         <>
             <Row>
                 <Col col={{xs: 12, md: 8}} >
-                        <SimpleSlider images={[{src: img1}, {src: img2}]} autoplay={false} slidesToShow={1} arrows={false} />
+                        <SimpleSlider images={[{src: img1}, {src: img2}]} autoplay={true} slidesToShow={1} arrows={false} />
                 </Col>
                 <Col col={{xs: 12, md: 4}}>
-                    <SimpleSlider images={[{src: img3}, {src: img4}]} autoplay={false} dots={false}/>
+                    <SimpleSlider images={[{src: img3}, {src: img4}]} autoplay={false} dots={false} arrows={false}/>
                 </Col>
             </Row>
             <Row>
                 <Col col={{xs: 12, md: 4}}>
-                    <SimpleSlider images={[{src: img3}, {src: img4}]} autoplay={false} dots={false}/>
+                    <SimpleSlider images={[{src: img3}, {src: img4}]} autoplay={false} dots={false} arrows={false}/>
                 </Col>
                 <Col col={{xs: 12, md: 8}}>
-                    <SimpleSlider images={[{src: img1}, {src: img2}]} autoplay={false} dots={false}/>
+                    <SimpleSlider images={[{src: img1}, {src: img2}]} autoplay={false} dots={false} arrows={true}/>
                 </Col>
             </Row>
         </>

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import styles from './SlideImg.module.css';
 type propsType = {
     src: string,
     link?: string,
@@ -26,7 +26,7 @@ const SlideImg: React.FC<propsType> = ({
         ...(height === 'auto' ? {height: 'auto'} : {height: height + heightUnit}),
         ...(maxWidthHeight && {maxWidth: '100%' , height:'auto'} ),
     }
-    const image =  <img src={src} style={style} alt={alt}/>
+    const image =  <img src={src} style={style} className={styles.slideImg} alt={alt}/>
 
     return (
         <>

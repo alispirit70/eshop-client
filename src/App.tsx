@@ -4,15 +4,23 @@ import Home from "View/Pages/Home";
 import "App.css";
 import Product from "View/Pages/Product";
 
-
+import {CssBaseline, ThemeProvider} from "@mui/material";
+import {appTheme} from "./themes/theme";
+import RTL from "./themes/RTL";
 
 function App() {
     return (
-        <div className="App" dir="rtl">
-            <Product />
-            {/*<Home/>*/}
-            {/*<TestComponent />*/}
-        </div>
+        <RTL>
+            <ThemeProvider theme={appTheme}>
+                <CssBaseline enableColorScheme/>
+                <div className="App" dir="rtl">
+                    {/*<Product />*/}
+                    <Home/>
+                    {/*<TestComponent />*/}
+                </div>
+            </ThemeProvider>
+        </RTL>
+
     );
 }
 

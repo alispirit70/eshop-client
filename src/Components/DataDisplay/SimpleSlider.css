@@ -2,13 +2,14 @@
     max-width: 100%;
 }
 .sliderSection{
-    border: 1px solid #e4e4e4;
+    border: 1px solid #fefefe;
     border-radius: 4px;
 }
 .arrowVisible{
-    width: calc(100% - 50px);
-    padding-right: 25px ;
-    padding-left: 25px ;
+    /*width: calc(100% - 50px);*/
+    /*width: 100%;*/
+    /*padding-right: 25px ;*/
+    /*padding-left: 25px ;*/
 }
 .simpleSld img{
     max-width: 100%;
@@ -20,11 +21,20 @@
 .img-slide img{
     width: 100%;
 }
+.slick-prev, .slick-next{
+    width: 30px;
+    height: 30px;
+}
+.sliderSection .simpleSld .slick-next:before,.sliderSection  .simpleSld .slick-prev:before{
+    font-size: 30px;
+    line-height: 36px;
+}
+
 .simpleSld .slick-prev {
     /*left: 0px;*/
 }
 [dir='rtl'] .simpleSld .slick-prev {
-    /*right: 0px;*/
+    right: 10px;
     /*left: auto;*/
 }
  .simpleSld .slick-next {
@@ -32,11 +42,11 @@
  }
 [dir='rtl'] .simpleSld .slick-next {
     /*right: auto;*/
-    /*left: 0px;*/
+    left: 10px;
 }
 .simpleSld .slick-next , .simpleSld .slick-prev{
     z-index: 100;
-    background: #11b7f3;
+    background: #d8e0e3cc;
     border-radius: 100%;
 }
 .simpleSld .slick-next:before , .simpleSld .slick-prev:before{
