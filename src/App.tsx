@@ -1,12 +1,13 @@
 import React from 'react';
-import TestComponent from "View/Pages/TestComponent";
-import Home from "View/Pages/Home";
 import "App.css";
-import Product from "View/Pages/Product";
+import TestComponent from "view/pages/TestComponent";
+import Home from "view/pages/Home";
+import Product from "view/pages/Product";
 
 import {CssBaseline, ThemeProvider} from "@mui/material";
 import {appTheme} from "./themes/theme";
 import RTL from "./themes/RTL";
+import Profile from "./view/pages/Profile";
 
 function App() {
     return (
@@ -14,9 +15,10 @@ function App() {
             <ThemeProvider theme={appTheme}>
                 <CssBaseline enableColorScheme/>
                 <div className="App" dir="rtl">
+                    {/*<Home/>*/}
                     {/*<Product />*/}
-                    <Home/>
                     {/*<TestComponent />*/}
+                    <Profile />
                 </div>
             </ThemeProvider>
         </RTL>
