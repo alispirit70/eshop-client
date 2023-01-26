@@ -26,7 +26,7 @@ type CHProps = {
     required?: boolean,
     size?: OverridableStringUnion<'small' | 'medium', CheckboxPropsSizeOverrides>,
     value?: any,
-    extraClass?: SxProps<Theme>,
+    extraStyle?: SxProps<Theme>,
 }
 const Checkbox: React.FC<CHProps> = ({
                                          checked,
@@ -46,7 +46,7 @@ const Checkbox: React.FC<CHProps> = ({
                                          required,
                                          size,
                                          value,
-                                         extraClass,
+                                         extraStyle,
                                      }) => {
     const attributes = {
         ...(checked && {checked : checked}),
@@ -66,7 +66,7 @@ const Checkbox: React.FC<CHProps> = ({
         ...(required && {required : required}),
         ...(size && {size : size}),
         ...(value && {value : value}),
-        ...(extraClass && {extraClass : extraClass}),
+        ...(extraStyle && {extraStyle : extraStyle}),
 
     }
     return (

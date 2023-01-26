@@ -34,7 +34,7 @@ const ProductInfo: React.FC<propsType> = ({
         <Stack direction='column' spacing={1}>
             <h3 className={styles.productTitle}> {title} </h3>
             <h6 className={styles.productSub}> {subTitle}</h6>
-            <Stack direction='column' extraClass={{border: 1, borderRadius: 2, my: 2, borderColor: '#e1e1e1', py: 1}}>
+            <Stack direction='column' extraStyle={{border: 1, borderRadius: 2, my: 2, borderColor: '#e1e1e1', py: 1}}>
                 {!!priceBeforeOff && <div className={styles.productOff}>&nbsp;{priceBeforeOff}&nbsp;</div>}
                 <div className={styles.productPrice}>
                     {salePercent > 0 ? <Badge
@@ -50,7 +50,7 @@ const ProductInfo: React.FC<propsType> = ({
             </Stack>
 
             <div>
-                <Select items={size} label='انتخاب سایز' placeholder='انتخاب کنید' />
+                <Select items={size} label='انتخاب سایز' placeholder='انتخاب کنید' name='test' />
             </div>
             <div> <Button variant='contained' color='success' > افزوددن به سبد خرید</Button></div>
         </Stack>

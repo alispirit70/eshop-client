@@ -31,7 +31,7 @@ type propsType = {
     },
     onClose?: (event: React.SyntheticEvent) => void,
     variant?: 'filled' | 'outlined' | 'standard',
-    extraClass?: SxProps<Theme>
+    extraStyle?: SxProps<Theme>
 }
 const Alert: React.FC<propsType> = ({
                                         children,
@@ -50,7 +50,7 @@ const Alert: React.FC<propsType> = ({
                                         slotProps,
                                         slots,
                                         variant,
-                                        extraClass,
+                                        extraStyle,
                                     }) => {
     const attributes = {
         ...(classes && {classes: classes}),
@@ -66,7 +66,7 @@ const Alert: React.FC<propsType> = ({
         ...(slotProps && {slotProps: slotProps}),
         ...(slots && {slots: slots}),
         ...(variant && {variant: variant}),
-        ...(extraClass && {sx: extraClass}),
+        ...(extraStyle && {sx: extraStyle}),
     }
     const [open, setOpen] = React.useState(true);
     const actionAlert = closeButton ?

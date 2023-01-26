@@ -32,7 +32,7 @@ type BProps = {
         badge?: ElementType,
     }
     variant?: 'dot' | 'standard' ,
-    extraClass?: SxProps<Theme>,
+    extraStyle?: SxProps<Theme>,
 }
 const Badge: React.FC<BProps> = ({
                                      children,
@@ -49,10 +49,9 @@ const Badge: React.FC<BProps> = ({
                                      slotProps,
                                      slots,
                                      variant='standard',
-                                     extraClass,
+                                     extraStyle,
                                  }) => {
     const attributes = {
-        ...(children && {children: children}),
         ...(anchorOrigin && {anchorOrigin: anchorOrigin}),
         ...(badgeContent && {badgeContent: badgeContent}),
         ...(classes && {classes: classes}),
@@ -66,7 +65,7 @@ const Badge: React.FC<BProps> = ({
         ...(slotProps && {slotProps: slotProps}),
         ...(slots && {slots: slots}),
         ...(variant && {variant: variant}),
-        ...(extraClass && {sx: extraClass}),
+        ...(extraStyle && {sx: extraStyle}),
     }
     return (
         <MuiBadge {...attributes}>

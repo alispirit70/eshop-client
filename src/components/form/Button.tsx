@@ -26,7 +26,7 @@ interface  BProps extends React.ComponentPropsWithoutRef<"button"> {
     href?: string,
     size?: OverridableStringUnion<'small' | 'medium' | 'large', ButtonPropsSizeOverrides>,
     startIcon?: React.ReactNode,
-    extraClass?: SxProps<Theme>,
+    extraStyle?: SxProps<Theme>,
     variant?: OverridableStringUnion<
         'text' | 'outlined' | 'contained',
         ButtonPropsVariantOverrides
@@ -46,7 +46,7 @@ const Button:React.FC<BProps> = ({
                                      href,
                                      size,
                                      startIcon,
-                                     extraClass,
+                                     extraStyle,
                                      variant	,
                                      onClick,
                                  }) => {
@@ -61,7 +61,7 @@ const Button:React.FC<BProps> = ({
         ...(href && {href: href}),
         ...(size && {size: size}),
         ...(startIcon && {startIcon: startIcon}),
-        ...(extraClass && {sx: extraClass}),
+        ...(extraStyle && {sx: extraStyle}),
         ...(variant && {variant: variant}),
         ...(onClick && {onClick: onClick}),
     }

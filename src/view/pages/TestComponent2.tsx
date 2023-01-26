@@ -35,22 +35,22 @@ const TestComponent2 = () => {
     return (
         <Container>
             <Col col={{xs: 12, md: 6}}>
-                <Alert title={'simple title'} extraClass={{mt: 1}}>
+                <Alert title={'simple title'} extraStyle={{mt: 1}}>
                     some text for example .
                 </Alert>
-                <Alert severity='info' closeButton={true} extraClass={{mt: 1}}>
+                <Alert severity='info' closeButton={true} extraStyle={{mt: 1}}>
                     some text for example .
                 </Alert>
-                <Alert severity='error' closeButton={true} extraClass={{mt: 1}}>
+                <Alert severity='error' closeButton={true} extraStyle={{mt: 1}}>
                     some text for example .
                 </Alert>
-                <Alert severity='warning' closeButton={true} variant='filled' extraClass={{mt: 1}}>
+                <Alert severity='warning' closeButton={true} variant='filled' extraStyle={{mt: 1}}>
                     some text for example .
                 </Alert>
-                <Alert severity='warning' closeButton={true} variant='outlined' extraClass={{mt: 1,py:0}}>
+                <Alert severity='warning' closeButton={true} variant='outlined' extraStyle={{mt: 1,py:0}}>
                     some text for example .
                 </Alert>
-                <Alert severity='warning' closeButton={true} variant='standard' extraClass={{mt: 1, py:0,}} >
+                <Alert severity='warning' closeButton={true} variant='standard' extraStyle={{mt: 1, py:0,}} >
                     some text for example .
                 </Alert>
             </Col>

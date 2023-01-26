@@ -20,6 +20,7 @@ type itemType = {
 }
 type SProps = {
     items: itemType[],
+    name: string,
     autoWidth?: boolean,
     classes?: Partial<SelectClasses>;
     defaultOpen?: boolean;
@@ -38,19 +39,19 @@ type SProps = {
     onOpen?: () => {},
     open?: boolean;
     SelectDisplayProps?: React.HTMLAttributes<HTMLDivElement>;
-    extraClass?: SxProps<Theme>,
+    extraStyle?: SxProps<Theme>,
     value?: any,
     variant?: 'standard' | 'outlined' | 'filled',
-    itemVariant?: 'standard' | 'badge' ,
+    itemVariant?: 'standard' | 'badge',
     placeholder?: string | false,
 
 }
 
 
-
 const inputPropsDefault = {'aria-label': 'Without label'}
 const Select: React.FC<SProps> = ({
                                       items = [],
+                                      name,
                                       autoWidth,
                                       classes,
                                       defaultOpen,
@@ -69,11 +70,11 @@ const Select: React.FC<SProps> = ({
                                       onOpen,
                                       open,
                                       SelectDisplayProps,
-                                      extraClass,
+                                      extraStyle,
                                       value,
                                       variant,
                                       itemVariant = 'standard',
-                                      placeholder=false
+                                      placeholder = false
                                   }) => {
     const attributes = {
         ...(autoWidth && {autoWidth: autoWidth}),
@@ -89,7 +90,7 @@ const Select: React.FC<SProps> = ({
         ...(onClose && {onClose: onClose}),
         ...(onOpen && {onOpen: onOpen}),
         ...(open && {open: open}),
-        ...(extraClass && {sx: extraClass}),
+        ...(extraStyle && {sx: extraStyle}),
         ...(value && {value: value}),
         ...(variant && {variant: variant}),
     }
@@ -97,20 +98,18 @@ const Select: React.FC<SProps> = ({
     const [selected, setSelected] = React.useState<(any)[]>([]);
 
     useEffect(() => {
-        if(  multiple ) {
-            setSelected(Array.isArray(value) ? value : [] );
-        }else {
-            setSelected(Array.isArray(value) ? '' : value );
+        if (multiple) {
+            setSelected(Array.isArray(value) ? value : []);
+        } else {
+            setSelected(Array.isArray(value) ? '' : value);
         }
 
-    },[]);
+    }, []);
     useEffect(() => {
         // console.log(selected)
         // const selectedItems = items.filter(item => selected.includes(item.value) );
         // setSelectedLabel(selectedItems.map(item => item.label));
     }, [selected]);
-
-
 
 
     const handleChangeDefault = (event: SelectChangeEvent<typeof selected>) => {
@@ -123,10 +122,9 @@ const Select: React.FC<SProps> = ({
     };
 
 
-
     const handelRenderValue = (selected: (string | number)[]) => {
         const selectedItems = items.filter(item => selected.includes(item.value));
-        if(itemVariant=== 'badge'){
+        if (itemVariant === 'badge') {
             const selectedrender = <Box sx={{display: 'flex', flexWrap: 'wrap', gap: 0.5}}>
                 {selectedItems.map((item) => (
                     <Chip key={item.value} label={item.label}/>
@@ -145,27 +143,28 @@ const Select: React.FC<SProps> = ({
                     {...attributes}
                     onChange={handleChangeDefault}
                     value={selected}
-                    renderValue = {multiple ? handelRenderValue : undefined}
+                    renderValue={multiple ? handelRenderValue : undefined}
+                    name={name}
                 >
-                <MenuItem
-                    disabled
-                    value=""
-                >
-                    {placeholder && <em>{placeholder}</em>}
-                </MenuItem>
-                {items.map((item, key) => {
-                        return (
-                            <MenuItem disabled={false} key={item.label} value={item.value}>
-                                {item.label}
-                            </MenuItem>
-                        )
-                    }
-                )}
-            </MuiSelect>
-        </FormControl>
-</div>
-)
-    ;
+                    <MenuItem
+                        disabled
+                        value=""
+                    >
+                        {placeholder && <em>{placeholder}</em>}
+                    </MenuItem>
+                    {items.map((item, key) => {
+                            return (
+                                <MenuItem disabled={false} key={item.label} value={item.value}>
+                                    {item.label}
+                                </MenuItem>
+                            )
+                        }
+                    )}
+                </MuiSelect>
+            </FormControl>
+        </div>
+    )
+        ;
 }
 export type {itemType};
 export default Select;

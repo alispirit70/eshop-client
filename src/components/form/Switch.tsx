@@ -21,7 +21,7 @@ type SProps = {
     required?:	boolean,
     size?:	'medium' | 'small' | string,
     value?:	any
-    extraClass?: SxProps<Theme>,
+    extraStyle?: SxProps<Theme>,
 }
 const Switch:React.FC<SProps> = ({
                                      label='',
@@ -39,7 +39,7 @@ const Switch:React.FC<SProps> = ({
                                      required,
                                      size,
                                      value,
-                                     extraClass,
+                                     extraStyle,
                                  }) => {
 
     const attributes = {
@@ -57,7 +57,7 @@ const Switch:React.FC<SProps> = ({
         ...(required && {required : required}),
         ...(size && {size : size}),
         ...(value && {value : value}),
-        ...(extraClass && {sx : extraClass}),
+        ...(extraStyle && {sx : extraStyle}),
     }
     return (
     <FormGroup>

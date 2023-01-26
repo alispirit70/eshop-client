@@ -22,7 +22,7 @@ type TProps = {
     placement?:	'bottom-end' | 'bottom-start' | 'bottom' | 'left-end' | 'left-start' | 'left' | 'right-end' | 'right-start' | 'right' | 'top-end' | 'top-start' | 'top' ,
     title:	ReactNode,
     TransitionProps?: TransitionProps,
-    extraClass?:  SxProps<Theme>,
+    extraStyle?:  SxProps<Theme>,
 
 }
 
@@ -41,7 +41,7 @@ const Tooltip: React.FC<TProps> = ({
                                        placement,
                                        title,
                                        TransitionProps,
-                                       extraClass,
+                                       extraStyle,
                                    }) => {
     const attribute = {
         ...(arrow && {arrow : arrow}),
@@ -56,7 +56,7 @@ const Tooltip: React.FC<TProps> = ({
         ...(onOpen && {onOpen : onOpen}),
         ...(placement && {placement : placement}),
         ...(TransitionProps && {TransitionProps : TransitionProps}),
-        ...(extraClass && {sx : extraClass}),
+        ...(extraStyle && {sx : extraStyle}),
     }
     return (
         <MuiTooltip title={title}  {...attribute} >

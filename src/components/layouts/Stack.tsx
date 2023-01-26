@@ -6,26 +6,33 @@ import MuiStack from '@mui/material/Stack';
 type propsType = {
     children: ReactNode,
     direction?: 'column-reverse' | 'column' | 'row-reverse' | 'row',
+    alignItems?: 'flex-start' |  'center' |  'flex-end' |  'stretch' |  'baseline',
+    justifyContent?:  'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly' ,
     divider?: ReactNode,
     spacing?: number | string,
-    extraClass?: SxProps<Theme>,
-
+    extraStyle?: SxProps<Theme>,
+    className?: string
 }
 const Stack: React.FC<propsType> = ({
                                         children,
                                         direction,
                                         divider,
                                         spacing,
-                                        extraClass,
+                                        extraStyle,
+                                        alignItems,
+                                        justifyContent,
+                                        className
                                     }) => {
         const attributes = {
             ...(direction && {direction: direction}),
             ...(divider && {divider: divider}),
             ...(spacing && {spacing: spacing}),
-            ...(extraClass && {sx: extraClass}),
+            ...(alignItems && {alignItems: alignItems}),
+            ...(justifyContent && {justifyContent: justifyContent}),
+            ...(extraStyle && {sx: extraStyle}),
         }
         return (
-            <MuiStack {...attributes} >
+            <MuiStack {...attributes} className={className} >
                 {children}
             </MuiStack>
         );

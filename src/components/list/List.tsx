@@ -9,19 +9,19 @@ type LProps = {
     children?: ReactNode,
     classes?: Partial<ListClasses>,
     dense?: boolean,/* true : vertical padding */
-    extraClass?: SxProps<Theme>
+    extraStyle?: SxProps<Theme>
 }
 const List: React.FC<LProps> = ({
                                     children,
                                     classes,
                                     dense,
-                                    extraClass,
+                                    extraStyle,
                                 }) => {
         const attributes = {
             ...(children && {children: children}),
             ...(classes && {classes: classes}),
             ...(dense && {dense: dense}),
-            ...(extraClass && {sx: extraClass}),
+            ...(extraStyle && {sx: extraStyle}),
         }
         return (
             <MuiList {...attributes}>

@@ -12,7 +12,7 @@ type propsType = {
     thickness?: number,
     value?: number,
     variant?: 'determinate' | 'indeterminate',
-    extraClass?:  SxProps<Theme>,
+    extraStyle?:  SxProps<Theme>,
 }
 
 const CircularProgress: React.FC<propsType> = ({
@@ -23,7 +23,7 @@ const CircularProgress: React.FC<propsType> = ({
                                                    thickness,
                                                    value,
                                                    variant,
-                                                   extraClass,
+                                                   extraStyle,
                                                }) => {
     const attributes = {
         ...(classes && {classes: classes}),
@@ -33,7 +33,7 @@ const CircularProgress: React.FC<propsType> = ({
         ...(thickness && {thickness: thickness}),
         ...(value && {value: value}),
         ...(variant && {variant: variant}),
-        ...(extraClass && {sx: extraClass}),
+        ...(extraStyle && {sx: extraStyle}),
     }
     return (
         <MuiCircularProgress {...attributes} />

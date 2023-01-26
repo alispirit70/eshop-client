@@ -4,18 +4,20 @@ import {SxProps} from "@mui/system";
 import {Theme} from "@mui/material/styles";
 type propsType = {
     children: ReactNode,
-    extraClass?: SxProps<Theme>,
+    extraStyle?: SxProps<Theme>,
+    className?:string
 }
 const Row:React.FC<propsType> = ({
                                      children,
-                                     extraClass,
+                                     extraStyle,
+    className
 }) => {
 const attributes = {
-    ...(extraClass && {sx: extraClass}),
+    ...(extraStyle && {sx: extraStyle}),
 }
     return (
-        <Box sx={{ flexGrow: 1 }} {...attributes}>
-            <Grid container spacing={2}>
+        <Box sx={{ flexGrow: 1 }} {...attributes} >
+            <Grid container spacing={2} className={className}>
                 {children}
             </Grid>
         </Box>

@@ -24,14 +24,15 @@ type IProps = {
     type?: string,
     value?: any,
 
-    extraClass?: SxProps<Theme>,
+    extraStyle?: SxProps<Theme>,
 
     //================= form control Props
     color?: 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning' ,
     variant?: 'underline' | 'standard',
     fullWidth?: boolean,
     size?: 'medium' | 'small' ,
-
+    className?: string,
+    labelClassName?: string,
 
 }
 
@@ -47,15 +48,17 @@ const Input: React.FC<IProps> = ({
                                      margin,
                                      name,
                                      onChange,
-                                     placeholder,
+                                     placeholder='',
                                      required,
-                                     extraClass,
+                                     extraStyle,
                                      type,
                                      value,
                                      color='primary',
                                      variant='standard',
                                      fullWidth=true,
                                      size='small',
+                                     className='',
+                                     labelClassName=''
                                  }) => {
     const attributes = {
         ...(autoFocus && {autoFocus: autoFocus}),
@@ -69,9 +72,8 @@ const Input: React.FC<IProps> = ({
         ...(margin && {margin: margin}),
         ...(name && {name: name}),
         ...(onChange && {onChange: onChange}),
-        ...(placeholder && {placeholder: placeholder}),
         ...(required && {required: required}),
-        ...(extraClass && {sx: extraClass}),
+        ...(extraStyle && {sx: extraStyle}),
         ...(type && {type: type}),
         ...(value && {value: value}),
         ...({fullWidth:true})
@@ -84,9 +86,9 @@ const Input: React.FC<IProps> = ({
                 size={size}
                 dir='rtl'
             >
-                <InputLabel htmlFor="standard-adornment-amount">{label}</InputLabel>
-                {variant==='standard' && <OutlinedInput {...attributes} />}
-                {variant==='underline' && <MuiInput {...attributes} />}
+                <InputLabel htmlFor="standard-adornment-amount" className={labelClassName}>{label}</InputLabel>
+                {variant==='standard' && <OutlinedInput {...attributes} placeholder={placeholder} className={className}/>}
+                {variant==='underline' && <MuiInput {...attributes} placeholder={placeholder} className={className} />}
             </FormControl>
         </>
     );

@@ -22,7 +22,7 @@ import avatar4 from 'Assets/4.jpg'
 import {Box, Stack} from "@mui/material";
 
 import MailIcon from '@mui/icons-material/Mail';
-import Row from "../../components/layouts/Row";
+import Row from "components/layouts/Row";
 
 
 const selectItems = [
@@ -38,7 +38,7 @@ const selectItems = [
 const TestComponent = () => {
     return (
         <Container>
-            <Row extraClass={{py:2}}>
+            <Row extraStyle={{py:2}}>
                 <Col col={{xs: 12, md: 6}}>
                     <Button size='medium' variant='contained'> click </Button>
                     <Button size='small' color='warning' variant='outlined'> click </Button>
@@ -69,15 +69,15 @@ const TestComponent = () => {
                 </Col>
                 <Col col={{xs: 12, md: 6}}>
                     <Select items={selectItems} label='test Select' multiple={false} value={[]} variant='standard'
-                            itemVariant='badge'/>
+                            itemVariant='badge' name='test1'/>
                 </Col>
                 <Col col={{xs: 12, md: 6}}>
                     <Select items={selectItems} label='test Select' multiple={true} value={[]} variant='outlined'
-                            itemVariant='standard'/>
+                            itemVariant='standard' name='test2'/>
                 </Col>
                 <Col col={{xs: 12, md: 6}}>
                     <Select items={selectItems} label='test Select' multiple={true} value={[14, 15]} variant='standard'
-                            itemVariant='badge'/>
+                            itemVariant='badge' name='test3'/>
                 </Col>
                 <Col col={{xs: 12, md: 6}}>
                     <Switch label='test' defaultChecked={true}/>

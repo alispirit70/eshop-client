@@ -13,7 +13,7 @@ type propsType = {
     maxWidth?:  'xs' | 'sm' | 'md' | 'lg' | 'xl' | false,
     classes?: Partial<ContainerClasses>,
     className?: string,
-    extraClass?: SxProps<Theme>,
+    extraStyle?: SxProps<Theme>,
     spacing?: GridSpacing
 }
 const Container: React.FC<propsType> = ({
@@ -21,7 +21,7 @@ const Container: React.FC<propsType> = ({
                                          maxWidth,
                                          classes,
                                          fixed,
-                                         extraClass,
+                                         extraStyle,
                                          className,
                                          children,
                                          spacing
@@ -32,7 +32,7 @@ const Container: React.FC<propsType> = ({
         ...(maxWidth && {maxWidth: maxWidth}),
         ...(classes && {classes: classes}),
         ...(fixed && {fixed: fixed}),
-        ...(extraClass && {sx: extraClass}),
+        ...(extraStyle && {sx: extraStyle}),
     }
     return (
         <MuiContainer {...attributes} className={className}>

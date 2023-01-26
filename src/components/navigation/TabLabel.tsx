@@ -11,7 +11,7 @@ type tabLabelType = {
     disabled?: boolean,
     icon?: string | React.ReactElement,
     iconPosition?: 'bottom' | 'end' | 'start' | 'top',
-    extraClass?: SxProps<Theme>,
+    extraStyle?: SxProps<Theme>,
 }
 type propsLabelsType = {
     labels: tabLabelType[],
@@ -36,7 +36,7 @@ const TabLabel: React.FC<propsLabelsType> = ({
                 ...(label.disabled && {disabled: label.disabled}),
                 ...(label.icon && {icon: label.icon}),
                 ...(label.iconPosition && {iconPosition: label.iconPosition}),
-                ...(label.extraClass && {sx: label.extraClass}),
+                ...(label.extraStyle && {sx: label.extraStyle}),
             };
         }
 

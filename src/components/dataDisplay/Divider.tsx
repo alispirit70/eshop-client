@@ -15,8 +15,8 @@ type DProps = {
     orientation?: 'horizontal' | 'vertical',
     textAlign?: 'center' | 'left' | 'right',
     variant?:	'fullWidth'| 'inset'| 'middle',
-    extraClass?: SxProps<Theme>,
-
+    extraStyle?: SxProps<Theme>,
+    className?: string
 }
 const Divider:React.FC<DProps> = ({
                                       children,
@@ -28,7 +28,8 @@ const Divider:React.FC<DProps> = ({
                                       orientation,
                                       textAlign,
                                       variant,
-                                      extraClass,
+                                      extraStyle,
+                                      className,
                                   }) => {
     const attributes = {
         ...(absolute && { absolute : absolute}),
@@ -39,11 +40,11 @@ const Divider:React.FC<DProps> = ({
             ...(orientation && { orientation : orientation}),
             ...(textAlign && { textAlign : textAlign}),
             ...(variant && { variant : variant}),
-        ...(extraClass && {sx: extraClass}),
+        ...(extraStyle && {sx: extraStyle}),
     }
 
     return (
-        <MuiDivider {...attributes}>
+        <MuiDivider {...attributes} className={className}>
             {children}
         </MuiDivider>
     );

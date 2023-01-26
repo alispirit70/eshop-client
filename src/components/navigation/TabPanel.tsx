@@ -10,7 +10,7 @@ type propsType = {
     prefixId?: string,
     value?: number,
     // classes	object
-    // extraClass?: SxProps<Theme>,
+    // extraStyle?: SxProps<Theme>,
 }
 
 

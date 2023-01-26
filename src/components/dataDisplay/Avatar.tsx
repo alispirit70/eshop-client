@@ -13,7 +13,7 @@ type AProps = {
     src?:	string,
     srcSet?:	string,
     variant?:	'circular'| 'rounded'| 'square',
-    extraClass?: SxProps<Theme>
+    extraStyle?: SxProps<Theme>
 }
 
 const Avatar:React.FC<AProps> = ({
@@ -25,7 +25,7 @@ const Avatar:React.FC<AProps> = ({
                                      src,
                                      srcSet,
                                      variant='circular',
-                                     extraClass ,
+                                     extraStyle ,
                                  }) => {
     const attributes = {
     ...(alt && {alt:alt}),
@@ -36,7 +36,7 @@ const Avatar:React.FC<AProps> = ({
     ...(src && {src:src}),
     ...(srcSet && {srcSet:srcSet}),
     ...(variant && {variant:variant}),
-    ...(extraClass && {sx:extraClass}),
+    ...(extraStyle && {sx:extraStyle}),
     }
         return (
         <MUIAvatar {...attributes}  />

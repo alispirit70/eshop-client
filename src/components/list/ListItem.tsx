@@ -18,12 +18,13 @@ type LProps = {
     disablePadding?: boolean,
     divider?: boolean,
     secondaryAction?: ReactNode,
-    extraClass?: SxProps<Theme>
+    extraStyle?: SxProps<Theme>
     text?: string,
     alignIcon?: 	'center' | 'flex-start',
     icon?: ReactNode  ,
     showSubList?: boolean,
     subListProps?: ReactNode,
+    className?: string,
 }
 const ListItem: React.FC<LProps> = ({
                                         children,
@@ -35,13 +36,13 @@ const ListItem: React.FC<LProps> = ({
                                         disablePadding,
                                         divider,
                                         secondaryAction,
-                                        extraClass,
+                                        extraStyle,
                                         text='',
                                         alignIcon,
                                         icon=false,
                                         showSubList = false,
                                         subListProps ,
-
+                                        className,
                                     }) => {
     const [open, setOpen] = React.useState(true);
 
@@ -55,7 +56,7 @@ const ListItem: React.FC<LProps> = ({
         ...(disablePadding && {disablePadding: disablePadding}),
         ...(divider && {divider: divider}),
         ...(secondaryAction && {secondaryAction: secondaryAction}),
-        ...(extraClass && {sx: extraClass}),
+        ...(extraStyle && {sx: extraStyle}),
         //------------------
         ...(alignIcon && {alignItems: alignIcon}),
 
@@ -66,8 +67,8 @@ const ListItem: React.FC<LProps> = ({
         setOpen(!open);
     };
     return (
-        <React.Fragment>
-            <ListItemButton  {...attributes} onClick={handleClick}  >
+        <div>
+            <ListItemButton className={className}  {...attributes} onClick={handleClick}  >
                 {!!icon && <ListItemIcon  >{icon}</ListItemIcon>}
                 {!!text.length && <ListItemText>{text}</ListItemText>}
                 { showSubList ?  (open   ? <ExpandLess /> : <ExpandMore /> ): ''   }
@@ -78,7 +79,7 @@ const ListItem: React.FC<LProps> = ({
                     {subListProps}
                 </Collapse>
             }
-        </React.Fragment>
+        </div>
     );
 };
 

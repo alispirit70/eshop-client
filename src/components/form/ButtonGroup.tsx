@@ -23,7 +23,7 @@ type BGProps = {
     disableFocusRipple?: boolean,
     fullWidth?: boolean,
     size?: OverridableStringUnion<'small' | 'medium' | 'large', ButtonGroupPropsSizeOverrides>,
-    extraClass?: SxProps<Theme>,
+    extraStyle?: SxProps<Theme>,
     variant?: OverridableStringUnion<
         'text' | 'outlined' | 'contained',
         ButtonGroupPropsVariantOverrides
@@ -39,7 +39,7 @@ const ButtonGroup:React.FC<BGProps> = ({
                                   disableFocusRipple,
                                   fullWidth,
                                   size,
-                                  extraClass,
+                                  extraStyle,
                                   variant	,
                               }) => {
     const attributes = {
@@ -51,7 +51,7 @@ const ButtonGroup:React.FC<BGProps> = ({
         ...(disableFocusRipple && {disableFocusRipple: disableFocusRipple}),
         ...(fullWidth && {fullWidth: fullWidth}),
         ...(size && {size: size}),
-        ...(extraClass && {sx: extraClass}),
+        ...(extraStyle && {sx: extraStyle}),
         ...(variant && {variant: variant}),
 
     }

@@ -1,10 +1,11 @@
 import React, {ReactNode} from 'react';
-import Header from "../../view/section/Header/Header";
+import Header from "../../view/section/header/Header";
 import Container from "./Container";
+import {Outlet} from "@mui/icons-material";
 type propsType = {
     children?: ReactNode
 }
-const Layout:React.FC<propsType> = ({
+const LayoutFull:React.FC<propsType> = ({
                                         children=''
                                     }) => {
     return (
@@ -17,4 +18,4 @@ const Layout:React.FC<propsType> = ({
     );
 };
 
-export default Layout;
+export default LayoutFull;
