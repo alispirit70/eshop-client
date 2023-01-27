@@ -4,7 +4,7 @@ import Container from "./Container";
 import LayoutFull from "./LayoutFull";
 import Col from "./Col";
 import Row from "./Row";
-import sidebar from "../../view/section/profile/Sidebar";
+import sidebar from "view/section/profile/Sidebar";
 
 type propsType = {
     children?: ReactNode,

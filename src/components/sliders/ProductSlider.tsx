@@ -10,7 +10,19 @@ import p5 from "assets/sample/p5.jpg"
 import p6 from "assets/sample/p6.jpg"
 import SimpleSlider from "components/dataDisplay/SimpleSlider";
 
-type propsType = {}
+type itemType = {
+    price: number,
+    priceBeforeOff?: number ,
+    image: string,
+    brand: string,
+    subTitle?: string,
+}
+type propsType = {
+    items: itemType[],
+    showSalePercent?: boolean,
+    maxWidth: number,
+    maxWidthUnit: string,
+}
 
 const itemList = [
     {
@@ -22,71 +34,33 @@ const itemList = [
         showSalePercent: true,
         maxWidth: 330,
         maxWidthUnit: 'px',
-    }, {
-        price: 190999,
-        priceBeforeOff: 250999,
-        image: p2,
-        brand: 'NoBrand',
-        subTitle: 'نیم بوت مردانه کانژوک Kanzhouk کد M245',
-        showSalePercent: true,
-        maxWidth: 330,
-        maxWidthUnit: 'px',
-    }, {
-        price: 190999,
-        priceBeforeOff: 250999,
-        image: p3,
-        brand: 'NoBrand',
-        subTitle: 'نیم بوت مردانه کانژوک Kanzhouk کد M245',
-        showSalePercent: true,
-        maxWidth: 330,
-        maxWidthUnit: 'px',
-    }, {
-        price: 190999,
-        priceBeforeOff: 250999,
-        image: p4,
-        brand: 'NoBrand',
-        subTitle: 'نیم بوت مردانه کانژوک Kanzhouk کد M245',
-        showSalePercent: true,
-        maxWidth: 330,
-        maxWidthUnit: 'px',
-    }, {
-        price: 190999,
-        priceBeforeOff: 250999,
-        image: p5,
-        brand: 'NoBrand',
-        subTitle: 'نیم بوت مردانه کانژوک Kanzhouk کد M245',
-        showSalePercent: true,
-        maxWidth: 330,
-        maxWidthUnit: 'px',
-    }, {
-        price: 190999,
-        priceBeforeOff: 250999,
-        image: p6,
-        brand: 'NoBrand',
-        subTitle: 'نیم بوت مردانه کانژوک Kanzhouk کد M245',
-        showSalePercent: true,
-        maxWidth: 330,
-        maxWidthUnit: 'px',
-    },
-
+    }
 ]
-const ProductSlider: React.FC<propsType> = () => {
+const ProductSlider: React.FC<propsType> = ({   items,
+                                                showSalePercent=true,
+                                                maxWidth,
+                                                maxWidthUnit,
+}) => {
     const attributes = {}
-    const items = itemList.map(item => <ProductCard
-        price={item.price}
-        priceBeforeOff={item.priceBeforeOff}
-        image={item.image}
-        brand={item.brand}
-        subTitle={item.subTitle}
-        showSalePercent={item.showSalePercent}
-        maxWidth={item.maxWidth}
-        maxWidthUnit={item.maxWidthUnit}
-    />)
+
+
+    const itemList = items.map(item => {
+        return <ProductCard
+            price={item.price}
+            priceBeforeOff={item.priceBeforeOff}
+            image={item.image}
+            brand={item.brand}
+            subTitle={!!item.subTitle ? item.subTitle : ''}
+            showSalePercent={showSalePercent}
+            maxWidth={maxWidth}
+            maxWidthUnit={maxWidthUnit}
+        />
+    })
     return (
         <Row>
             <Col col={{xs: 12}}>
                 <SimpleSlider
-                    items={items}
+                    items={itemList}
                     slidesToShow={3}
                     autoplay={false}
                     arrows={false}

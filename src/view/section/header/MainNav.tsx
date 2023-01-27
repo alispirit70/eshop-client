@@ -10,6 +10,8 @@ import styles from "./MainNav.module.css"
 
 import logo from "assets/sample/logo.jpg"
 import Input from "components/form/Input";
+import { Link } from 'react-router-dom';
+import Stack from "../../../components/layouts/Stack";
 const isLogin = true;
 
 type propsType = {}
@@ -19,17 +21,27 @@ const MainNav: React.FC<propsType> = () => {
         <Container>
             <Row>
                 <Col col={{xs: 12, sm: 3}}>
-                    <img className={styles.logo} src={logo}/>
+                    <Link to='/' >
+                        <img className={styles.logo} src={logo}/>
+                    </Link>
                 </Col>
                 <Col col={{xs: 12, sm: 6}}>
                     <Input label='جست و جو'  />
                 </Col>
                 <Col col={{xs: 12, sm: 3}}>
-                    <Badge anchorOrigin={{horizontal: "right", vertical: "top"}} badgeContent='5' color='info'>
-                        <ShoppingCart color='info'/>
-                    </Badge>
-                    {!isLogin && <Button color='info' type='button' variant='contained' size='small'> ورود </Button>}
-                    {isLogin && <Button color='info' type='button' variant='contained' size='small'> پروفایل </Button>}
+                    <Stack direction='row' >
+                        <Badge anchorOrigin={{horizontal: "right", vertical: "top"}} badgeContent='5' color='info'>
+                            <ShoppingCart color='info'/>
+                        </Badge>
+                        <div className='px-4'>
+                            {!isLogin && <Button color='info' type='button' variant='contained' size='small'> ورود </Button>}
+                            {isLogin && <Link to='/profile' > پروفایل </Link>}
+                            {/*{isLogin && <Link to='/profile' > <Button color='info' type='button' variant='outlined' size='small'> پروفایل </Button> </Link>}*/}
+                        </div>
+                    </Stack>
+
+
+
                 </Col>
 
 

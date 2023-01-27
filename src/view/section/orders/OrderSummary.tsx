@@ -46,7 +46,7 @@ const OrderSummary: React.FC<propsType> = ({
             </Stack>
             {images?.length > 0 && <>
                 <Divider/><Stack direction='row' spacing={1} className='py-3'>
-                {images?.map((img:string)=><Img src={img}  width='50px' height='50px' className='rounded border border-gray-300' />) }
+                {images?.map((img:string, index:number)=><Img key={index} src={img}  width='50px' height='50px' className='rounded border border-gray-300' />) }
             </Stack>
             </>
             }

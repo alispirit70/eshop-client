@@ -6,6 +6,7 @@ import Img from "../../../components/dataDisplay/Img";
 import imageMan from 'assets/sample/gender-female.png'
 import {splitCounter} from "utils/splitCounter";
 import Divider from "../../../components/dataDisplay/Divider";
+import {Link} from "react-router-dom";
 
 type propsType = {}
 const tempData = {
@@ -36,14 +37,13 @@ const Sidebar: React.FC<propsType> = () => {
             <Divider />
             <Stack direction='column' className='mt-6'>
                 <div>
-                    <List dense={false}>
-                        <ListItem className='py-2 mb-2'>
-                            حساب کاربری
-                        </ListItem>
-                        <ListItem>
-                            حساب کاربری
-                        </ListItem>
-                    </List>
+                    <ul>
+                        <li><Link to='/profile' >پروفایل</Link></li>
+                        <li><Link to='/address' >آدرس ها</Link></li>
+                        <li><Link to='/changePassword' >پسوورد</Link></li>
+                        <li><Link to='/orders' >سفارش ها</Link></li>
+                        <li><Link to='/wishList' >علاقه مندی ها</Link></li>
+                    </ul>
                 </div>
             </Stack>
         </>

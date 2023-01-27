@@ -1,0 +1,42 @@
+{
+    "data" : [
+        {
+            "price": 450000,
+            "priceBeforeOff": 400000,
+            "image": "/sample/p1.jpg",
+            "brand": "NoBrand",
+            "subTitle": "نیم بوت مردانه کانژوک Kanzhouk کد M245"
+        },
+        {
+            "price": 450000,
+            "priceBeforeOff": 400000,
+            "image": "/sample/p2.jpg",
+            "brand": "NoBrand",
+            "subTitle": "نیم بوت مردانه کانژوک Kanzhouk کد M245"
+        }, {
+            "price": 450000,
+            "priceBeforeOff": 400000,
+            "image": "/sample/p3.jpg",
+            "brand": "NoBrand",
+            "subTitle": "نیم بوت مردانه کانژوک Kanzhouk کد M245"
+        }, {
+            "price": 450000,
+            "priceBeforeOff": 400000,
+            "image": "/sample/p4.jpg",
+            "brand": "NoBrand",
+            "subTitle": "نیم بوت مردانه کانژوک Kanzhouk کد M245"
+        }, {
+            "price": 450000,
+            "priceBeforeOff": 400000,
+            "image": "/sample/p5.jpg",
+            "brand": "NoBrand",
+            "subTitle": "نیم بوت مردانه کانژوک Kanzhouk کد M245"
+        }, {
+            "price": 450000,
+            "priceBeforeOff": 400000,
+            "image": "/sample/p6.jpg",
+            "brand": "NoBrand",
+            "subTitle": "نیم بوت مردانه کانژوک Kanzhouk کد M245"
+        }
+    ]
+}
